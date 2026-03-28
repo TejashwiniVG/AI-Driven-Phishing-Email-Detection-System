@@ -1,0 +1,30 @@
+<!doctype html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>AI Email Guard — Secure Edition</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+       <link rel="stylesheet" href="/static/css/style.css"> 
+      </head> 
+      
+      <body> 
+        <div class="container py-4"> 
+          <h2 class="text-center mb-3">
+            <i class="bi bi-shield-lock"></i> AI Email Guard — Secure Edition</h2> 
+            <p class="text-center text-muted small mb-4">Multi-class ML + SPF/DKIM/DMARC + URL risk analysis</p> <ul class="nav nav-tabs" id="mainTabs" role="tablist"> <li class="nav-item" role="presentation"> <button class="nav-link active" id="analyze-tab" data-bs-toggle="tab" data-bs-target="#analyze" type="button" role="tab">Analyze Email</button> </li> <li class="nav-item" role="presentation"> <button class="nav-link" id="dashboard-tab" data-bs-toggle="tab" data-bs-target="#dashboard" type="button" role="tab">Real-time Dashboard</button> </li> </ul> <div class="tab-content" id="mainTabsContent"> <div class="tab-pane fade show active" id="analyze" role="tabpanel" aria-labelledby="analyze-tab"> <div class="row justify-content-center mt-3"> <div class="col-lg-10"> <div class="card shadow-sm"> <div class="card-body"> <div class="row g-3"> <div class="col-md-6"> <label class="form-label">Email Subject</label> <input type="text" id="subject" class="form-control" placeholder="Enter subject"> </div> <div class="col-md-6"> <label class="form-label">Email Headers (optional)</label> <textarea id="headers" class="form-control" rows="3" placeholder="Paste raw email headers here for SPF/DKIM/DMARC checks"></textarea> </div> </div> <div class="mt-3"> <label class="form-label">Email Body</label> <textarea id="body" class="form-control" rows="8" placeholder="Paste email content"></textarea> </div> <div class="d-flex gap-2 mt-3"> <button id="checkBtn" class="btn btn-primary"><i class="bi bi-search"></i> Predict with Logistic Regression</button> <button id="clearBtn" class="btn btn-outline-secondary">Clear</button> 
+            <button id="predict-resnet-btn" class="btn btn-success">
+    <i class="bi bi-cpu"></i> Predict with ResNet
+  </button>
+  <button id="predict-cnn-btn" class="btn btn-warning">
+  <i class="bi bi-robot"></i> Predict with CNN
+</button>
+<button id="final-result-btn" class="btn btn-dark">
+    <i class="bi bi-check-circle"></i> Final Result
+</button>
+</div> 
+<div id="finalResultDiv" class="mt-3"></div>
+            <div id="resnetResult" class="mt-3"></div>
+
+            <div id="result" class="mt-3"></div> <div id="urlAnalysis" class="mt-3"> <h4>URL Analysis</h4> <p id="urlRisk"></p> <ul id="urlList"></ul> </div> <div id="explainBox" class="mt-3" style="display:none;"> <h6>Why this decision?</h6> <div id="tokens" class="token-cloud"></div> </div> <div id="securityBox" class="mt-4" style="display:none;"> <h6 class="mb-2">Security Signals</h6> <div class="row g-3"> <div class="col-md-6"> <div class="p-3 border rounded"> <div class="fw-semibold mb-2">Authentication (SPF/DKIM/DMARC)</div> <div id="authPanel" class="small"></div> </div> </div> <div class="col-md-6"> <div class="p-3 border rounded"> <div class="fw-semibold mb-2">URL Analysis</div> <div class="small"> <div id="urlRisk"></div> <ul id="urlList" class="small mb-0"></ul> </div> </div> </div> </div> </div> </div> </div> </div> </div> </div> <div class="tab-pane fade" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab"> <div class="mt-3"> <div class="card shadow-sm"> <div class="card-body"> <h6 class="mb-3">Recent Analyses</h6> <table class="table table-sm align-middle"> <thead> <tr> <th>Time</th> <th>Subject</th> <th>Label</th> <th>legit</th> <th>spam</th> <th>phishing</th> <th>Auth risk</th> <th>URL risk</th> <th>Final hint</th> </tr> </thead> <tbody id="historyBody"></tbody> </table> </div> </div> </div> </div> </div> </div> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> <script src="/static/js/main.js"></script> </body> </html>

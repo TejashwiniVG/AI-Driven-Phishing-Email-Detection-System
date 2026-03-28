@@ -1,0 +1,9 @@
+.badge-legit { background-color: #d1f7d6; color: #0f5132; border: 1px solid #198754; }
+.badge-spam { background-color: #fff3cd; color: #664d03; border: 1px solid #ffca2c; }
+.badge-phishing { background-color: #f8d7da; color: #842029; border: 1px solid #f5c2c7; }
+.token-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+.token-chip { padding: 6px 10px; border-radius: 12px; border: 1px solid #dee2e6; font-size: 0.9rem; transition: 0.3s; }
+.token-chip:hover { transform: scale(1.05); }
+.token-pos { background: #e7f5e9; }
+.token-neg { background: #fdecec; }
+.small-muted { color: #6c757d; }
